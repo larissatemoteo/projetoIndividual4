@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.min.js"></script>
+        <script src="scene-one.js"></script>
+        <script src="scene-two.js"></script>
+        <script src="scene-three.js"></script>
+    </head>
+    <body>
+        <div id="game"></div>
+        <script>
+
+            const phaserConfig = {
+                type: Phaser.AUTO,
+                parent: "game",
+                width: 1280,
+                height: 720,
+                backgroundColor: "#5DACD8",
+                physics: {
+                    default: 'arcade',
+                    arcade: {
+                        gravity: { y: 300 },
+                        debug: false
+                    }
+                },
+                scene: [ SceneOne, SceneTwo, SceneThree ]
+            };
+
+            const game = new Phaser.Game(phaserConfig);
+
+        </script>
+    </body>
+</html>
