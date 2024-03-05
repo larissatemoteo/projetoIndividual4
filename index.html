@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.min.js"></script>
-        <script src="scene-one.js"></script>
-        <script src="scene-two.js"></script>
-        <script src="scene-three.js"></script>
-    </head>
-    <body>
-        <div id="game"></div>
-        <script>
+<head>
+    <!-- Inclui a biblioteca Phaser -->
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.min.js"></script>
+    <!-- Inclui os scripts das cenas -->
+    <script src="scene-one.js"></script>
+    <script src="scene-two.js"></script>
+    <script src="scene-three.js"></script>
+</head>
+<body>
+    <!-- Elemento onde o jogo será renderizado -->
+    <div id="game"></div>
+    <script>
+        // Configuração do jogo Phaser
+        const phaserConfig = {
+            type: Phaser.AUTO, // Tipo de renderização automática
+            parent: "game", // Elemento pai onde o jogo será renderizado
+            width: 1280, // Largura da tela do jogo
+            height: 720, // Altura da tela do jogo
+            backgroundColor: "#5DACD8", // Cor de fundo do jogo
+            physics: {
+                default: 'arcade', // Sistema de física padrão
+                arcade: {
+                    gravity: { y: 300 }, // Configura a gravidade do jogo
+                    debug: false // Habilita ou desabilita o modo de depuração de física
+                }
+            },
+            scene: [ SceneOne, SceneTwo, SceneThree ] // Lista de cenas do jogo
+        };
 
-            const phaserConfig = {
-                type: Phaser.AUTO,
-                parent: "game",
-                width: 1280,
-                height: 720,
-                backgroundColor: "#5DACD8",
-                physics: {
-                    default: 'arcade',
-                    arcade: {
-                        gravity: { y: 300 },
-                        debug: false
-                    }
-                },
-                scene: [ SceneOne, SceneTwo, SceneThree ]
-            };
-
-            const game = new Phaser.Game(phaserConfig);
-
-        </script>
-    </body>
+        // Cria uma instância do jogo Phaser com a configuração fornecida
+        const game = new Phaser.Game(phaserConfig);
+    </script>
+</body>
 </html>
